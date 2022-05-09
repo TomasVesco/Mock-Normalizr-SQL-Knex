@@ -1,5 +1,5 @@
-const { SQLite3_options } = require('../DBcfg/SQLite3_conf');
-const knex = require('knex')(SQLite3_options);
+const { MariaDB_options } = require('../DBcfg/mariaDB_conf');
+const knex = require('knex')(MariaDB_options);
 
 class ContenedorMensajes {
 

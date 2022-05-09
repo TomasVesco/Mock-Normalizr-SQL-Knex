@@ -1,11 +1,12 @@
 const express = require('express');
 const moment = require('moment');
 
+const MONGO = require('./DBcfg/MongodbCFG');
+
 const ContenedorProducts = require('./class/productsClass');
-const ContenedorMensajes = require('./class/messageClass');
+const MongodbMessages = require('./class/mongoDBMessages');
 
 const p = new ContenedorProducts();
-const m = new ContenedorMensajes();
 const fakerProducts = require('./faker');
 
 const app = express();
@@ -31,7 +32,27 @@ httpServer.listen(PORT, function () {
 
 
 
-// ---------------------> FIN DECLARACIONES <---------------------
+const dbMessages = 'mongodb';
+
+let m;
+
+switch(dbMessages){
+  case 'mongodb':
+    MONGO;
+    console.log('Usando Mongodb para la persistencia de mensajes');
+    m = new MongodbMessages();
+    break;
+  
+  case 'fs':
+    console.log('Usuando FileSystem para la persistencia de mensajes');
+    m = new FileSystemMessages();
+    break;
+
+  default:
+    console.log('Usuando Firestore para la persistencia de los mensajes');
+    m = new FirestoreMssages();
+    break;
+}
 
 
 

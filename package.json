@@ -17,6 +17,7 @@
     "express": "^4.17.3",
     "knex": "^1.0.5",
     "moment": "^2.29.1",
+    "mongoose": "^6.3.3",
     "mysql": "^2.18.1",
     "normalizr": "^3.6.2",
     "python3": "^0.0.1",
