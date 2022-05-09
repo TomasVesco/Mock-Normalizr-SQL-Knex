@@ -102,7 +102,7 @@ io.on("connection", async function (socket) {
         text: data.text
       }
 
-      await m.save(newMessages);
+      await m.insertMessage(newMessages);
     }
 
     messages = await m.getAll();

@@ -1,13 +1,12 @@
 const socket = io.connect();
 
 function renderMessage(data) {
-    if(data.length !== 0){
-
+    if(data !== 'No hay mensajes'){
         const html = data.map(elem => {
             return(`
             <div>
             <strong style="color: #3352FF">${elem.author}</strong>
-            <em style="color: #BA842C">[${elem.timestamp}]</em>:
+            <em style="color: #BA842C">[${elem.date}]</em>:
             <em style="color: #64B02D">${elem.text}</em> 
             </div>
             `)
