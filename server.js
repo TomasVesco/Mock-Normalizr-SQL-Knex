@@ -5,6 +5,7 @@ const MONGO = require('./DBcfg/MongodbCFG');
 
 const ContenedorProducts = require('./class/productsClass');
 const MongodbMessages = require('./class/mongoDBMessages');
+const FileSystemMessages = require('./class/fileSystem');
 
 const p = new ContenedorProducts();
 const fakerProducts = require('./faker');
@@ -32,7 +33,7 @@ httpServer.listen(PORT, function () {
 
 
 
-const dbMessages = 'mongodb';
+const dbMessages = 'fs';
 
 let m;
 
@@ -45,7 +46,7 @@ switch(dbMessages){
   
   case 'fs':
     console.log('Usuando FileSystem para la persistencia de mensajes');
-    m = new FileSystemMessages();
+    m = new FileSystemMessages('./files/messages.txt');
     break;
 
   default:

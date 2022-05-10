@@ -1,6 +1,7 @@
 const socket = io.connect();
 
 function renderMessage(data) {
+    console.log(data);
     if(data !== 'No hay mensajes'){
         const html = data.map(elem => {
             return(`
