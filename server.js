@@ -2,10 +2,12 @@ const express = require('express');
 const moment = require('moment');
 
 const MONGO = require('./DBcfg/MongodbCFG');
+const FIRESTORE = require('./DBcfg/Firestore');
 
 const ContenedorProducts = require('./class/productsClass');
 const MongodbMessages = require('./class/mongoDBMessages');
 const FileSystemMessages = require('./class/fileSystem');
+const FirestoreMessages = require('./class/firestore');
 
 const p = new ContenedorProducts();
 const fakerProducts = require('./faker');
@@ -33,7 +35,7 @@ httpServer.listen(PORT, function () {
 
 
 
-const dbMessages = 'fs';
+const dbMessages = '';
 
 let m;
 
@@ -50,8 +52,9 @@ switch(dbMessages){
     break;
 
   default:
+    FIRESTORE;
     console.log('Usuando Firestore para la persistencia de los mensajes');
-    m = new FirestoreMssages();
+    m = new FirestoreMessages();
     break;
 }
 

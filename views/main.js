@@ -1,7 +1,6 @@
 const socket = io.connect();
 
 function renderMessage(data) {
-    console.log(data);
     if(data !== 'No hay mensajes'){
         const html = data.map(elem => {
             return(`
@@ -30,6 +29,7 @@ function addMessage(e) {
 }
 
 function renderProduct(data) {
+    console.log(data);
     if(data.length !== 0){
 
         const html = data.map(elem => {
